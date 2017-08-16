@@ -1,0 +1,52 @@
+.mc-17-modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.97);
+}
+.mc-17-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: none;
+}
+.mc-17-modal.mc-visible {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+}
+
+.mc-17-modal img {
+    max-width: 100vw;
+    max-height: 100vh;
+    display: block;
+    margin: 0 auto;
+    z-index: 1001;
+}
+
+.mc-17-modal .mc-btn{
+    position: absolute;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    padding: 15px;
+    z-index: 1002;
+}
+
+.mc-17-modal .mc-btn-close {
+    right: 20px;
+    bottom: 20px;
+} 
+.mc-17-modal .mc-btn-prev {
+    left: 20px;
+    bottom: 20px;
+} 
+.mc-17-modal .mc-btn-next {
+    left: 70px;
+    bottom: 20px;
+} 
