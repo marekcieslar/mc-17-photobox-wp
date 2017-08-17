@@ -16,6 +16,9 @@ function mcCloseModal() {
 let mcImg = document.createElement('img');
 mcModal.appendChild(mcImg);
 
+let mcDesc = document.createElement('p');
+mcModal.appendChild(mcDesc);
+
 /*
  * SWIPE IMAGE
  */
@@ -28,7 +31,6 @@ mcImg.addEventListener('touchstart', e => {
     startSwipeX = e.changedTouches[0].clientX;
     startSwipeY = e.changedTouches[0].clientY;
     startTime = Date.now();
-    console.log(startTime)
 })
 
 mcImg.addEventListener('touchend', e => {
@@ -74,7 +76,6 @@ mcModal.appendChild(mcBtnNext);
 let mcGalleryThumbs = document.getElementsByClassName('link-to-full-img');
 let prevImg = 0;
 let nextImg = 0;
-console.log(mcGalleryThumbs)
 let l = mcGalleryThumbs.length;
 for (let i = 0; i < l; i++) {
     let thumb = mcGalleryThumbs[i];
@@ -89,6 +90,14 @@ for (let i = 0; i < l; i++) {
 function mcOpenPhoto(x) {
     mcModal.classList.add('mc-visible');
     mcImg.src = mcGalleryThumbs[x].href;
+    let imgDescription = mcGalleryThumbs[x].childNodes[0].dataset.description;
+    if (imgDescription) {
+        mcDesc.innerHTML = imgDescription;
+        mcDesc.style.display = 'block';
+    }
+    else {
+        mcDesc.style.display = 'none';
+    }
     prevImg = x <= 0 ? l - 1 : x - 1;
     nextImg = x >= l - 1 ? 0 : x + 1;
 }
