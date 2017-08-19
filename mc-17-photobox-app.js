@@ -91,7 +91,8 @@ function mcOpenPhoto(x) {
     mcModal.classList.add('mc-visible');
     mcImg.src = mcGalleryThumbs[x].href;
     let imgDescription = mcGalleryThumbs[x].childNodes[0].dataset.description;
-    if (imgDescription) {
+    let imgShowDesc = mcGalleryThumbs[x].childNodes[0].dataset.showDescription;
+    if (imgDescription && imgShowDesc) {
         mcDesc.innerHTML = imgDescription;
         mcDesc.style.display = 'block';
     }

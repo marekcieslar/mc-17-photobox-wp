@@ -10,6 +10,7 @@
  */
 
 require_once ( plugin_dir_path ( __FILE__ ) . 'mc-17-photobox-work.php');
+require_once ( plugin_dir_path ( __FILE__ ) . 'mc-17-photobox-admin.php');
 
 function mc_17_scripts () {
     wp_enqueue_style ( 'mc-17-style', plugin_dir_url ( __FILE__ ) . 'mc-17-photobox-style.css');
