@@ -19,6 +19,11 @@ mcModal.appendChild(mcImg);
 let mcDesc = document.createElement('p');
 mcModal.appendChild(mcDesc);
 
+let mcCount = document.createElement('p');
+mcCount.classList.add('img-count');
+mcModal.appendChild(mcCount);
+let galleryContainer = document.getElementById('gallery-container');
+
 /*
  * SWIPE IMAGE
  */
@@ -90,6 +95,8 @@ for (let i = 0; i < l; i++) {
 function mcOpenPhoto(x) {
     mcModal.classList.add('mc-visible');
     mcImg.src = mcGalleryThumbs[x].href;
+
+    // show description
     let imgDescription = mcGalleryThumbs[x].childNodes[0].dataset.description;
     let imgShowDesc = mcGalleryThumbs[x].childNodes[0].dataset.showDescription;
     if (imgDescription && imgShowDesc) {
@@ -99,6 +106,14 @@ function mcOpenPhoto(x) {
     else {
         mcDesc.style.display = 'none';
     }
+
+    // show photos count
+    let mcImgSum = galleryContainer.dataset.images;
+    let imgShowCount = galleryContainer.dataset.imgShowCount;
+    if (imgShowCount) {
+        mcCount.innerHTML = `${x+1} z ${mcImgSum}`;
+    }
+    
     prevImg = x <= 0 ? l - 1 : x - 1;
     nextImg = x >= l - 1 ? 0 : x + 1;
 }
